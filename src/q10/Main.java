@@ -1,28 +1,18 @@
- package.q10
-     import java.util.*;
-
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String line = sc.nextLine();
-
         Stack<Integer> stack = new Stack<>();
-
         String[] tokens = line.split(" ");
-
         for (String token : tokens) {
-
-            // If token is a number
             if (Character.isDigit(token.charAt(0))) {
                 stack.push(Integer.parseInt(token));
             } 
-            // If token is an operator
             else {
                 int b = stack.pop();
                 int a = stack.pop();
-
                 int result = 0;
-
                 switch (token) {
                     case "+":
                         result = a + b;
@@ -37,7 +27,6 @@ public class Main {
                         result = a / b;
                         break;
                 }
-
                 stack.push(result);
             }
         }
